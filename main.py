@@ -1,5 +1,6 @@
 import random
 import sys
+import time
 
 user_wins = 0
 cpu_wins = 0
@@ -17,10 +18,13 @@ def run_game():
         if (user_choice > 3) or (user_choice < 1):
             print "Please enter a number 1 through 3."
 
+	time.sleep(1)
     #If user plays Rock
     if user_choice == 1:
         print "You chose Rock."
+        time.sleep(1)
         print "Computer chose %s." % cpu_choice_str(cpu_choice)
+        time.sleep(1)
         if cpu_choice == 0:
             print "You tied!"
             ties += 1
@@ -34,7 +38,9 @@ def run_game():
     #If user plays Paper
     elif user_choice == 2:
         print "You chose Paper."
+        time.sleep(1)
         print "Computer chose %s." % cpu_choice_str(cpu_choice)
+        time.sleep(1)
         if cpu_choice == 0:
             print "Your Paper covers computer's Rock! You win!"
             user_wins += 1
@@ -48,7 +54,9 @@ def run_game():
     #If user plays Scissors
     elif user_choice == 3:
         print "You chose Scissors."
+        time.sleep(1)
         print "Computer chose %s." % cpu_choice_str(cpu_choice)
+        time.sleep(1)
         if cpu_choice == 0:
             print "Computer's Rock smashes your Scissors! You lose"
             cpu_wins += 1
@@ -59,6 +67,7 @@ def run_game():
             print "You tied!"
             ties += 1
 
+    time.sleep(3)
     print "Thanks for playing!"
     print "Your wins: %d" % user_wins
     print "Computer wins: %d" % cpu_wins
@@ -73,6 +82,7 @@ def cpu_choice_str(x):
         return "Scissors"
 
 print "Let's play a game of Rock, Paper, Scissors."
+time.sleep(1)
 run_game()
 play_again = True
 while play_again:
