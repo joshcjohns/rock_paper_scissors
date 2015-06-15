@@ -10,13 +10,20 @@ def run_game():
     global user_wins
     global cpu_wins
     global ties
+    possible_choices = {1, 2, 3}
     user_choice = 0
     cpu_choice = random.randrange(2)
-    while user_choice < 1 or user_choice > 3:
-        user_choice = raw_input("Rock(1), Paper(2), Scissors(3), SHOOT! Enter a number: ")
-        user_choice = int(user_choice)
-        if (user_choice > 3) or (user_choice < 1):
+    while True:
+        try:
+            user_choice = int(input("Rock(1), Paper(2), Scissors(3), SHOOT! Enter a number: "))
+        except NameError:
             print "Please enter a number 1 through 3."
+            continue
+        if user_choice not in possible_choices:
+            print "Please enter a number 1 through 3."
+            continue
+        else:
+            break
 
 	time.sleep(1)
     #If user plays Rock
